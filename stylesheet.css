@@ -1,8 +1,13 @@
+@font-face {
+  font-family: GT Walsheim Pro;
+  src: url(font/GTWalsheimPro-Regular.woff);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: GT Walsheim Pro, sans-serif;
 }
 
 .slider-container {
@@ -368,3 +373,58 @@ footer {
   margin: 30px auto;
 }
 /* ------------------------------- */
+
+/*Viki Start*/
+html {
+  scroll-behavior: smooth;
+}
+
+/* HEADER STYLING*/
+.logo-container {
+  background-color: black;
+  height: 10vh;
+  flex: 0 0 100%;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-left: 15px;
+}
+
+#header-logo {
+  width: 50%;
+}
+
+/* SECTIONS STYLING*/
+.section-title {
+  margin: 10px 20px 20px 20px;
+  font-weight: bold;
+}
+
+.sub-title {
+  margin: 10px 20px 20px 20px;
+}
+
+.text {
+  margin: 10px 20px 20px 20px;
+}
+
+.grey-sections {
+  background-color: white;
+}
+
+.white-sections {
+  background-color: #e4e4e4;
+}
+
+.section-img {
+  max-width: 100%;
+}
+
+.link {
+  color: black;
+  font-size: 18px;
+  margin: 10px;
+}
+
+/*Vikis's Ends*/
