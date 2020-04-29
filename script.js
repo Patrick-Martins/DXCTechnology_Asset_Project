@@ -98,6 +98,9 @@ function checkLocalStorage() {
   if (localStorage.getItem("name")) {
     console.log("USER IS REGISTERED!");
 
+    //remove form
+    document.querySelector(".form-container").classList.add("hidden");
+
     //show welcome container
     //remove hidden fromwelcome section
     document.querySelector(".welcome-message").classList.remove("hidden");
@@ -201,6 +204,12 @@ function checkValidity_Email() {
     // TO DO: check if it exists already
     // TO DO: if it doesnt call a function that posts else show message that asks the user if he/she wants to go to it
   } else {
+    //if emailApproved is false then a div with a message should appear for 5s
+    document.querySelector(".email_existing_message ").classList.remove("hidden");
+    setTimeout(() => {
+      document.querySelector(".email_existing_message ").classList.add("hidden");
+    }, 5000);
+
     console.log("not valid");
     //add invalid class if it is invalid
     formInputs.forEach((input) => {
