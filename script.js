@@ -221,3 +221,4 @@ async function checkEmail(email_input) {
     });
 }
 // -------------------------------------------
+//---------- TABLE OF CONTENT (ASSET PAGE)------------------------
