@@ -1,5 +1,7 @@
 "use strict";
 
+const APIKey = "";
+const url = "https://databaseelite-b1b7.restdb.io/rest/dxc-subscriptions?max=2";
 //TASK 1 (Liat):   function to be able to post data
 //TASK 2 (Andy):   show invalid messages to inputs that are invalid
 //TASK 3 (Vicky):   if it is valid save the correct data in the json object inside setupSubmitForm()
@@ -34,9 +36,9 @@ function sliderFunctionality() {
   //slide counter
   let counter = 1;
   //width od screen
-  const size = sliderImages[0].clientWidth;
+  const size = 100;
 
-  slideContainer.style.transform = "translateX(" + -size * counter + "px)";
+  slideContainer.style.transform = "translateX(" + -size * counter + "vw)";
   dots[counter - 1].style.backgroundColor = "yellow";
 
   //next button
@@ -44,11 +46,17 @@ function sliderFunctionality() {
     if (counter >= sliderImages.length - 1) return;
     slideContainer.style.transition = "transform 1s ease-in-out";
     counter++;
-    slideContainer.style.transform = "translateX(" + -size * counter + "px)";
+    slideContainer.style.transform = "translateX(" + -size * counter + "vw)";
     dots.forEach((dot) => {
       dot.style.backgroundColor = "gray";
     });
-    dots[counter - 1].style.backgroundColor = "yellow";
+    if (sliderImages[counter].id === "lastClone") {
+      dots[0].style.backgroundColor = "yellow";
+    } else if (sliderImages[counter].id === "firstClone") {
+      dots[dots.length - 1].style.backgroundColor = "yellow";
+    } else {
+      dots[counter - 1].style.backgroundColor = "yellow";
+    }
   });
 
   //previous buuton
@@ -56,11 +64,17 @@ function sliderFunctionality() {
     if (counter <= 0) return;
     slideContainer.style.transition = "transform 1s ease-in-out";
     counter--;
-    slideContainer.style.transform = "translateX(" + -size * counter + "px)";
+    slideContainer.style.transform = "translateX(" + -size * counter + "vw)";
     dots.forEach((dot) => {
       dot.style.backgroundColor = "gray";
     });
-    dots[counter - 1].style.backgroundColor = "yellow";
+    if (sliderImages[counter].id === "lastClone") {
+      dots[0].style.backgroundColor = "yellow";
+    } else if (sliderImages[counter].id === "firstClone") {
+      dots[dots.length - 1].style.backgroundColor = "yellow";
+    } else {
+      dots[counter - 1].style.backgroundColor = "yellow";
+    }
   });
 
   // when the slide is on the first or the last
@@ -68,14 +82,12 @@ function sliderFunctionality() {
     if (sliderImages[counter].id === "lastClone") {
       slideContainer.style.transition = "none";
       counter = 1;
-      slideContainer.style.transform = "translateX(" + -size * counter + "px)";
-      dots[counter - 1].style.backgroundColor = "yellow";
+      slideContainer.style.transform = "translateX(" + -size * counter + "vw)";
     }
     if (sliderImages[counter].id === "firstClone") {
       slideContainer.style.transition = "none";
       counter = sliderImages.length - 2;
-      slideContainer.style.transform = "translateX(" + -size * counter + "px)";
-      dots[counter - 1].style.backgroundColor = "yellow";
+      slideContainer.style.transform = "translateX(" + -size * counter + "vw)";
     }
   });
 }
