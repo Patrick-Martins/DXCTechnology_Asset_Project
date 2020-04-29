@@ -14,15 +14,14 @@ window.addEventListener("DOMContentLoaded", init);
 const form = document.querySelector("form");
 const formInputs = form.querySelectorAll("input");
 const elements = form.elements;
+let emailSubmitted;
+let emailApproved = false;
 
 function init() {
-  //password protection
-  //local Storage check
   checkLocalStorage();
-  //post
   sliderFunctionality();
   setupSubmitForm();
-  getSubmissions();
+  //   getSubmissions();
 }
 
 function sliderFunctionality() {
@@ -96,6 +95,8 @@ function sliderFunctionality() {
 
 function checkLocalStorage() {
   if (localStorage.getItem("name")) {
+    console.log("USER IS REGISTERED!");
+
     //show welcome container
     //remove hidden fromwelcome section
     document.querySelector(".welcome-message").classList.remove("hidden");
@@ -126,14 +127,6 @@ async function getSubmissions() {
     });
 }
 async function postSubmission(dataToPost) {
-  //   const testData = {
-  //     name: `Patrick Martins`,
-  //     email: `patrick@hotmail.com`,
-  //     company: `KEA`,
-  //     job: `student`,
-  //     country: `Denmark`,
-  //     "entries-asset1": 0,
-  //   };
   //POST
   const postData = JSON.stringify(dataToPost);
 
@@ -147,46 +140,84 @@ async function postSubmission(dataToPost) {
     body: postData,
   })
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      console.log(data);
+      //redirect to asset page
+      window.location = "asset.html";
+    });
 }
 
 // FORM ----------------------------
 function setupSubmitForm() {
   //event listener on submit
   form.addEventListener("submit", (e) => {
+    //update the email submitted
+
     //remove invalid class from all
     formInputs.forEach((input) => {
       input.classList.remove("invalid");
     });
-    //if it is valid
-    if (form.checkValidity()) {
-      console.log("submit ready");
-      //local storage
-      localStorage.setItem("name", JSON.stringify([form.elements.firstName, form.elements.firstName]));
-      window.location = "asset.html";
-
-      const dataAdded = {
-        name: `${form.elements.firstName.value} ${form.elements.lastName.value}`,
-        email: `${form.elements.workEmail.value}`,
-        company: `${form.elements.companyName.value}`,
-        job: `${form.elements.jobTitle.value}`,
-        country: `${form.elements.country.value}`,
-        "entries-asset1": 0,
-      };
-      //postTheData
-      postSubmission(dataAdded);
-
-      // TO DO: check if it exists already
-      // TO DO: if it doesnt call a function that posts else show message that asks the user if he/she wants to go to it
-    } else {
-      //add invalid class if it is invalid
-      formInputs.forEach((input) => {
-        if (!input.checkValidity()) {
-          //   console.log(el.type);
-          input.classList.add("invalid");
-        }
-      });
-    }
+    //first check if the email exists and after check if all inputs are valid as well
+    checkEmail(form.elements.workEmail.value);
+    // console.log(emailApproved);
   });
+}
+function checkValidity_Email() {
+  console.log("checkValidity_Email CALLED");
+  console.log("emailApproved " + emailApproved);
+
+  if (form.checkValidity() && emailApproved) {
+    console.log("submit ready");
+    //local storage, set name and email values to grab the right subscription and add up to the accesses number
+    localStorage.setItem("name", `${form.elements.firstName.value} ${form.elements.lastName.value}`);
+    localStorage.setItem("email", `${form.elements.workEmail.value}`);
+
+    const dataAdded = {
+      name: `${form.elements.firstName.value} ${form.elements.lastName.value}`,
+      email: `${form.elements.workEmail.value}`,
+      company: `${form.elements.companyName.value}`,
+      job: `${form.elements.jobTitle.value}`,
+      country: `${form.elements.country.value}`,
+      entries_asset1: 0,
+    };
+    //postTheData
+    postSubmission(dataAdded);
+
+    // TO DO: check if it exists already
+    // TO DO: if it doesnt call a function that posts else show message that asks the user if he/she wants to go to it
+  } else {
+    console.log("not valid");
+    //add invalid class if it is invalid
+    formInputs.forEach((input) => {
+      if (!input.checkValidity()) {
+        //   console.log(el.type);
+        input.classList.add("invalid");
+      }
+    });
+  }
+}
+async function checkEmail(email_input) {
+  //get
+  fetch(`${url}?q={"email":"${email_input}"}`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": APIKey,
+      "cache-control": "no-cache",
+    },
+  })
+    .then((res) => res.json())
+    .then((subscription) => {
+      console.log("check email");
+      console.log(subscription);
+      if (subscription[0]) {
+        //show container stating the email already exists
+        console.log("email exists");
+        emailApproved = false;
+      } else {
+        emailApproved = true;
+      }
+      checkValidity_Email();
+    });
 }
 // -------------------------------------------
