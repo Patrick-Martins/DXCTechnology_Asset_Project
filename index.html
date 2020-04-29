@@ -13,7 +13,7 @@
       <div class="dxc-logo">
         <img src="/dxc_logo_white.png" alt="DXC Technology logo" />
       </div>
-      <a class="subscribe-button" href="">SUBSCRIBE TO INSIGHTS</a>
+      <a class="subscribe-button" href="#form-container">SUBSCRIBE TO INSIGHTS</a>
     </nav>
     <main>
         <section class="welcome-message hidden">
@@ -97,7 +97,7 @@
         </div>
         <img src="images/hands.jpg" alt="hands">
       </section>
-      <section class="form-container">
+      <section class="form-container" id="form-container">
         <div class="container">
           <p class="insight">Get the insights that matter</p>
         <p class="sign">Sign up to get access to the full article and receive exclusive content </p>
@@ -106,30 +106,37 @@
               <li>
                 <label for="first-name">First Name</label>
                 <input type="text" id="first-name" name="firstName" placeholder="Enter your first name here" required/>
+                <p>Your first name is missing</p>
+                
               </li>
               <li>
                 <label for="last-name">Last Name</label>
                 <input type="text" id="last-name" name="lastName" placeholder="Enter your last name here" required/>
+                <p>Your last name is missing</p>
               </li>
               <li>
                 <label for="email">Work Email</label>
                 <input type="email" id="email" name="workEmail" placeholder="Enter your work email here" required/>
+                <p>Not a valid email</p>
               </li>
               <li>
                 <label for="company-name">Company Name</label>
                 <input type="text" id="company-name" name="companyName" placeholder="Enter your company name here" required/>
+                <p>The name of your company is missing</p>
               </li>
               <li>
                 <label for="job">Job Title</label>
                 <input type="text" id="job" name="jobTitle" placeholder="Enter your job title here" required/>
+                <p>Job title is empty</p>
               </li>
               <li>
                 <label for="country">Country</label>
                 <input type="text" id="country" name="country" placeholder="Enter your country here" required/>
+                <p>*Please fill in your country</p>
               </li>
               <div class="boxcheck">
                 <input type="checkbox" id="checkbox" required/>
-                <label for="checkbox">Yes, you can email me and process my data for marketing purposes <a href="" class="learn-more">(learn more)</a></label>
+                <label for="checkbox">Yes, you can email me and process my data for marketing purposes <p class="learn-more">(learn more)</p></label>
               </div>
                 </ul>
                 <button type="submit" id="submit">Submit</button>
@@ -138,7 +145,16 @@
           </form>
         </div>
       </section>
+
+      
     </main>
+    <div class="hidden terms_and_conditions">
+        <p class="close_conditions">&#10006</p>
+        <p>At DXC we have exciting offers and news about our products and services that we hope you'd like to hear about via email. We will use your information to predict what you might be interested in. We will treat your data with respect and you can find the details on our Privacy Policy page.<br>
+
+          By opting in to DXC data processing, you are giving DXC the ability to serve tailored content for marketing purposes. Data processing allows DXC to use the information it knows about you to deliver the most relevant content and website experience. This permission can be withdrawn at any time. For more information about how information is used, please see the DXC privacy policy.</p>
+   
+    </div>
     <footer>
       <div class="dxc-copyrights">
         <p>© DXC Technology Company 2020</p>
