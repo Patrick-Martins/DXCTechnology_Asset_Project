@@ -90,6 +90,7 @@
   background-color: rgb(146, 146, 146);
   transition: background-color 1s ease-in-out;
 }
+/* //////////////////Andy start/////////////////////  */
 .form-container {
   font-family: Segoe UI;
   background: #434343;
@@ -178,9 +179,42 @@ li {
   display: block;
   margin: auto;
 }
-.learn-more {
+.learn-more,
+.about {
   color: #00cbff;
   text-decoration: none;
+}
+.dxc-about-innovation > p {
+  color: white;
+}
+.dxc-about-innovation {
+  background-color: black;
+}
+.purpose-form {
+  background-color: #a8a8a8;
+}
+.dxc-about-innovation > img {
+  max-width: 100%;
+  padding-top: 2em;
+}
+.purpose-form > img {
+  max-width: 100%;
+  padding-top: 2em;
+}
+.about {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 1em;
+  padding-bottom: 1em;
+}
+.inovation {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 1em;
+}
+.something {
+  margin: 2em;
 }
 .insight {
   font-size: 2em;
@@ -194,11 +228,10 @@ li {
   margin-bottom: 1.5em;
   text-align: center;
 }
+.ytext {
+  color: #f5ff00;
+}
 
-/* #checkbox {
-  background-color: burlywood;
-  width: 50px;
-} */
 input[type="checkbox"] {
   width: 15px;
   height: 15px;
@@ -209,6 +242,10 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
   background: #abd;
 }
+/* //////////////////FORM VALIDATION /////////////////////  */
+
+/* //////////////////Andy end/////////////////////  */
+
 body {
   min-height: 100%;
   min-width: 100%;
