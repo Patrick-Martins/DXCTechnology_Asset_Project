@@ -118,9 +118,6 @@ li {
 .flex-outer {
   list-style-type: none;
   padding: 0;
-}
-
-.flex-outer {
   max-width: 800px;
   margin: 0 auto;
 }
@@ -157,7 +154,6 @@ li {
 
 .flex-outer li input:not([type="checkbox"]) {
   padding: 15px;
-  border: none;
 }
 
 .flex-outer li button {
@@ -170,7 +166,27 @@ li {
   letter-spacing: 0.09em;
   border-radius: 2px;
 }
+/* //////////////////FORM VALIDATION /////////////////////  */
+input:not([type="checkbox"]) {
+  all: unset;
+  background: white;
+  color: black;
+  transition: 0.5s;
+}
+input:placeholder-shown {
+  border: none;
+}
 
+input:valid {
+  border: solid rgb(8, 190, 8);
+  border-left-width: 20px;
+}
+input:invalid:not(:focus):not(:placeholder-shown) {
+  border: solid rgb(202, 14, 14);
+  border-left-width: 20px;
+}
+
+/* //////// */
 #submit {
   background: black;
   border: none;
@@ -225,6 +241,7 @@ li {
   font-size: 2em;
   text-align: center;
   font-weight: 700;
+  padding-bottom: 1em;
 }
 .sign {
   text-align: center;
@@ -247,7 +264,6 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
   background: #abd;
 }
-/* //////////////////FORM VALIDATION /////////////////////  */
 
 /* //////////////////Andy end/////////////////////  */
 
