@@ -10,6 +10,10 @@
   font-family: GT Walsheim Pro, sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 .slider-container {
   width: 100vw;
   overflow: hidden;
@@ -428,3 +432,44 @@ html {
 }
 
 /*Vikis's Ends*/
+
+/* //media queries---------------------------- */
+
+.welcome-message {
+  grid-area: welcome;
+}
+.slider-container {
+  grid-area: slider;
+}
+.dynamics {
+  grid-area: dynamics;
+}
+.globalData {
+  grid-area: data;
+}
+.dxc-about-change {
+  grid-area: dxc_change;
+}
+.dxc-about-innovation {
+  grid-area: dxc_innovation;
+}
+.purpose-form {
+  grid-area: form_purpose;
+}
+.form-container {
+  grid-area: form;
+}
+
+@media only screen and (min-width: 875px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "welcome welcome"
+      "slider slider"
+      "dynamics data"
+      "dxc_change dxc_innovation"
+      "form_purpose form_purpose"
+      "form form";
+  }
+}

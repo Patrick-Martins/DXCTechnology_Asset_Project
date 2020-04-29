@@ -16,6 +16,7 @@ const elements = form.elements;
 function init() {
   //password protection
   //local Storage check
+  checkLocalStorage();
   //post
   sliderFunctionality();
   setupSubmitForm();
@@ -80,6 +81,21 @@ function sliderFunctionality() {
   });
 }
 
+function checkLocalStorage() {
+  if (localStorage.getItem("name")) {
+    //show welcome container
+    //remove hidden fromwelcome section
+    document.querySelector(".welcome-message").classList.remove("hidden");
+
+    const welcomeText = document.querySelector(".welcome-message h1");
+    const userName = localStorage.getItem("name");
+    welcomeText.innerHTML = `Welcome back ${userName}!`;
+
+    //change nav button
+    document.querySelector(".subscribe-button").innerHTML = "GO TO ASSET";
+    document.querySelector(".subscribe-button").href = "asset.html";
+  }
+}
 // FORM ----------------------------
 function setupSubmitForm() {
   //event listener on submit
@@ -92,8 +108,12 @@ function setupSubmitForm() {
     if (form.checkValidity()) {
       console.log("submit ready");
 
+      //local storage
+      localStorage.setItem("name", JSON.stringify([form.elements.firstName, form.elements.firstName]));
+      window.location = "asset.html";
+
       dataAdded = {
-        name: `${form.elements.firstName} ${form.elements.lastName} "TO DO"`,
+        name: `${form.elements.firstName} ${form.elements.lastName.value} "TO DO"`,
         email: "TO DO",
         company: "TO DO",
         job: "TO DO",

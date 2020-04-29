@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex"/>
+    <script defer src="https://kea-alt-del.dk/dxc/login.js"></script>
     <title>DXC Data Management</title>
     <link rel="stylesheet" href="stylesheet.css" />
   </head>
@@ -14,6 +16,9 @@
       <a class="subscribe-button" href="">SUBSCRIBE TO INSIGHTS</a>
     </nav>
     <main>
+        <section class="welcome-message hidden">
+            <h1>Welcome Message</h1>
+        </section>
       <section class="slider-container">
         <a class="previous">&#10094;</a>
         <a class="next">&#10095;</a>
@@ -89,30 +94,30 @@
             <ul class="flex-outer">
               <li>
                 <label for="first-name">First Name</label>
-                <input type="text" id="first-name" placeholder="Enter your first name here" />
+                <input type="text" id="first-name" placeholder="Enter your first name here" required/>
               </li>
               <li>
                 <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" placeholder="Enter your last name here" />
+                <input type="text" id="last-name" placeholder="Enter your last name here" required/>
               </li>
               <li>
                 <label for="email">Work Email</label>
-                <input type="email" id="email" placeholder="Enter your work email here" />
+                <input type="email" id="email" placeholder="Enter your work email here" required/>
               </li>
               <li>
                 <label for="company-name">Company Name</label>
-                <input type="text" id="company-name" placeholder="Enter your company name here" />
+                <input type="text" id="company-name" placeholder="Enter your company name here" required/>
               </li>
               <li>
                 <label for="job">Job Title</label>
-                <input type="text" id="job" placeholder="Enter your job title here" />
+                <input type="text" id="job" placeholder="Enter your job title here" required/>
               </li>
               <li>
                 <label for="country">Country</label>
-                <input type="text" id="country" placeholder="Enter your country here" />
+                <input type="text" id="country" placeholder="Enter your country here" required/>
               </li>
               <div class="boxcheck">
-                <input type="checkbox" id="checkbox" />
+                <input type="checkbox" id="checkbox" required/>
                 <label for="checkbox">Yes, you can email me and process my data for marketing purposes <a href="" class="learn-more">(learn more)</a></label>
               </div>
                 </ul>
