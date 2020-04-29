@@ -1,0 +1,203 @@
+@font-face {
+  font-family: GT Walsheim Pro;
+  src: url(font/GTWalsheimPro-Regular.woff);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: GT Walsheim Pro, sans-serif;
+  text-decoration: none;
+}
+/* table of contents------------------------ */
+.table-container {
+  width: 305px;
+  height: 554px;
+  background-color: black;
+  position: fixed;
+  top: 50px;
+  right: -305px;
+  transition: 1s;
+}
+.arrow-icon {
+  position: relative;
+  right: 25px;
+  bottom: 500px;
+}
+.table-of-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  padding: 20px;
+}
+.table-of-contents a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.table-of-contents a.current {
+  text-decoration: underline;
+  font-size: 150%;
+  color: yellow;
+}
+/* ------------------------------------------ */
+/*------------------- Viki Start -----------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+/* HEADER STYLING*/
+.header {
+  background-color: black;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+.logo-container {
+  width: 150px;
+}
+
+#header-logo {
+  width: 100%;
+  border: none;
+}
+
+@media only screen and (min-width: 1000px) {
+  .logo-container {
+    width: 200px;
+  }
+}
+
+/* SECTIONS STYLING*/
+.section-title {
+  margin: 10px 20px 20px 20px;
+  font-weight: bold;
+}
+
+.sub-title {
+  margin: 10px 20px 20px 20px;
+}
+
+.text {
+  margin: 10px 20px 20px 20px;
+}
+
+.grey-sections {
+  background-color: white;
+  width: 100%;
+}
+
+.white-sections {
+  background-color: #e4e4e4;
+  max-width: 100%;
+}
+
+.section-img {
+  max-width: 100%;
+}
+
+.link {
+  color: black;
+  font-size: 18px;
+  margin: 10px;
+}
+
+.bullet-points li p span {
+  font-weight: bold;
+}
+
+.right-triangle {
+  display: none;
+}
+
+img {
+  border: 1px solid #031b3f;
+}
+
+.img-description {
+  margin: 0 20px 20px 20px;
+  font-size: 13px;
+}
+
+.img-description span {
+  font-weight: bold;
+  padding: 0 5px 0 0;
+}
+
+/* Desktop version */
+
+@media only screen and (min-width: 700px) {
+  .grey-sections {
+    width: 100%;
+    padding-top: 30px;
+  }
+
+  .white-sections {
+    width: 100%;
+    padding-top: 30px;
+  }
+
+  .right-column {
+    width: 70%;
+    padding-left: 30px;
+    padding-bottom: 20px;
+  }
+
+  .left-column {
+    width: 70%;
+    padding-left: 30px;
+    padding-bottom: 20px;
+  }
+
+  .text {
+    text-align: justify;
+    font-size: 20px;
+  }
+
+  .bullet-points {
+    padding-left: 100px;
+  }
+}
+
+/* FOOTER STYLE*/
+
+footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: black;
+  color: #bcbcbc;
+  font-size: 11px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.additional-info {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+.additional-info li {
+  list-style-type: none;
+  margin-left: 2px;
+  text-decoration: none;
+  color: #bcbcbc;
+}
+
+.additional-info li a {
+  text-decoration: none;
+  color: #bcbcbc;
+}
+.additional-info li a:hover {
+  text-decoration: underline;
+}
+
+/*----------------------------- Vikis's Ends -------------------------*/
