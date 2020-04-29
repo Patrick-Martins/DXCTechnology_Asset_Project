@@ -21,6 +21,7 @@ function init() {
   checkLocalStorage();
   sliderFunctionality();
   setupSubmitForm();
+  clickConditions();
   //   getSubmissions();
 }
 
@@ -145,6 +146,20 @@ async function postSubmission(dataToPost) {
       //redirect to asset page
       window.location = "asset.html";
     });
+}
+
+function clickConditions() {
+  const closeBTN = document.querySelector(".close_conditions");
+  const conditionsLink = document.querySelector(".learn-more");
+  const conditionsContainer = document.querySelector(".terms_and_conditions");
+
+  conditionsLink.addEventListener("click", () => {
+    conditionsContainer.classList.remove("hidden");
+  });
+
+  closeBTN.addEventListener("click", () => {
+    conditionsContainer.classList.add("hidden");
+  });
 }
 
 // FORM ----------------------------

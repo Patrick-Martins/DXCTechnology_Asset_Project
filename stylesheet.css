@@ -10,9 +10,35 @@
   font-family: GT Walsheim Pro, sans-serif;
 }
 
-.hidden {
-  display: none;
+/* table of contents------------------------ */
+.table-container {
+  width: 305px;
+  height: 554px;
+  background-color: black;
+  position: fixed;
+  top: 50px;
+  right: -305px;
+  transition: 1s;
 }
+.arrow-icon {
+  position: relative;
+  right: 25px;
+  bottom: 500px;
+}
+.table-of-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  padding: 20px;
+}
+.table-of-contents a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+/* ------------------------------------------ */
 
 .slider-container {
   width: 100vw;
@@ -185,6 +211,16 @@ input:invalid:not(:focus):not(:placeholder-shown) {
   border-left-width: 20px;
 }
 
+input + p {
+  display: none;
+}
+
+input:invalid + p {
+  display: block;
+  font-weight: 600;
+  color: red;
+}
+
 /* //////// */
 #submit {
   background: black;
@@ -203,6 +239,11 @@ input:invalid:not(:focus):not(:placeholder-shown) {
 .about {
   color: #00cbff;
   text-decoration: none;
+  cursor: pointer;
+}
+.learn-more:hover,
+.about:hover {
+  text-decoration: underline;
 }
 .dxc-about-innovation > p {
   color: white;
@@ -428,6 +469,37 @@ footer {
   font-size: 18px;
   margin: 30px auto;
 }
+
+.terms_and_conditions {
+  background-color: rgba(220, 220, 220, 0.966);
+  display: block;
+  align-items: center;
+  width: 80%;
+  height: 60vh;
+  font-size: 12px;
+  font-weight: 100;
+  position: fixed;
+  z-index: 30;
+  right: 50%;
+  margin-right: -40%;
+  top: 50%;
+  margin-top: -30vh;
+  padding: 50px;
+  overflow: auto;
+}
+
+.close_conditions {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
 /* ------------------------------- */
 
 /* //media queries---------------------------- */
@@ -495,4 +567,17 @@ footer {
     width: 80%;
     margin: auto;
   }
+  .terms_and_conditions {
+    font-size: 20px;
+  }
 }
+
+/* input + p.invalid_message {
+  display: none;
+}
+
+input.invalid + p.invalid_message {
+  display: block;
+  color: red;
+  font-weight: 600;
+} */

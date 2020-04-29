@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", init);
 
 //each time an user accesses this page we get  the user that has the email in localStorage and grab the number of accesses to the asset and add 1
 function init() {
+  tableContentsFunctionality();
   //   console.log(user_email);
   getSubmission(user_email);
 }
@@ -60,4 +61,35 @@ async function putAccessNumber(subscription_ID) {
     .then((data) => {
       console.log(data);
     });
+}
+
+function tableContentsFunctionality() {
+  const arrowOpen = document.querySelector(".arrow-icon");
+  const table_content = document.querySelector(".table-container");
+  //add eventlistener
+  arrowOpen.addEventListener("click", () => {
+    //if status closed
+    if (table_content.dataset.status === "closed") {
+      //update data-status value
+      table_content.dataset.status = "open";
+      //show container
+      console.log("clicked2");
+      document.querySelector(".table-container").style.right = 0 + "px";
+
+      //invert the arrow
+      arrowOpen.style.transform = "scaleX(-1)";
+    }
+
+    //if status open
+    else if (table_content.dataset.status === "open") {
+      //update data-status value
+      table_content.dataset.status = "closed";
+      //hide container
+      console.log("clicked");
+      document.querySelector(".table-container").style.right = -305 + "px";
+
+      //set arrow to normal the arrow
+      arrowOpen.style.transform = "scaleX(1)";
+    }
+  });
 }
