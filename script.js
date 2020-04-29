@@ -1,7 +1,7 @@
 "use strict";
 
-const APIKey = "";
-const url = "https://databaseelite-b1b7.restdb.io/rest/dxc-subscriptions?max=2";
+const APIKey = "5e9580ac436377171a0c234c";
+const url = "https://databaseelite-b1b7.restdb.io/rest/dxc-subscriptions";
 //TASK 1 (Liat):   function to be able to post data
 //TASK 2 (Andy):   show invalid messages to inputs that are invalid
 //TASK 3 (Vicky):   if it is valid save the correct data in the json object inside setupSubmitForm()
@@ -22,6 +22,7 @@ function init() {
   //post
   sliderFunctionality();
   setupSubmitForm();
+  getSubmissions();
 }
 
 function sliderFunctionality() {
@@ -108,6 +109,47 @@ function checkLocalStorage() {
     document.querySelector(".subscribe-button").href = "asset.html";
   }
 }
+async function getSubmissions() {
+  //get
+
+  fetch(url, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": APIKey,
+      "cache-control": "no-cache",
+    },
+  })
+    .then((res) => res.json())
+    .then((subscriptions) => {
+      console.log(subscriptions);
+    });
+}
+async function postSubmission(dataToPost) {
+  //   const testData = {
+  //     name: `Patrick Martins`,
+  //     email: `patrick@hotmail.com`,
+  //     company: `KEA`,
+  //     job: `student`,
+  //     country: `Denmark`,
+  //     "entries-asset1": 0,
+  //   };
+  //POST
+  const postData = JSON.stringify(dataToPost);
+
+  fetch(url, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "x-apikey": APIKey,
+      "cache-control": "no-cache",
+    },
+    body: postData,
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+}
+
 // FORM ----------------------------
 function setupSubmitForm() {
   //event listener on submit
@@ -129,22 +171,10 @@ function setupSubmitForm() {
         company: `${form.elements.companyName.value}`,
         job: `${form.elements.jobTitle.value}`,
         country: `${form.elements.country.value}`,
+        "entries-asset1": 0,
       };
-
-      //POST
-      const postData = JSON.stringify(dataAdded);
-
-      fetch(`https://databaseelite-b1b7.restdb.io/rest/dxc-subscriptions`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          "x-apikey": "5e9580ac436377171a0c234c",
-          "cache-control": "no-cache",
-        },
-        body: postData,
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
+      //postTheData
+      postSubmission(dataAdded);
 
       // TO DO: check if it exists already
       // TO DO: if it doesnt call a function that posts else show message that asks the user if he/she wants to go to it
