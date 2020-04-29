@@ -10,36 +10,6 @@
   font-family: GT Walsheim Pro, sans-serif;
 }
 
-/* table of contents------------------------ */
-.table-container {
-  width: 305px;
-  height: 554px;
-  background-color: black;
-  position: fixed;
-  top: 50px;
-  right: -305px;
-  transition: 1s;
-}
-.arrow-icon {
-  position: relative;
-  right: 25px;
-  bottom: 500px;
-}
-.table-of-contents {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  padding: 20px;
-}
-.table-of-contents a {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-/* ------------------------------------------ */
-
 .slider-container {
   width: 100vw;
   overflow: hidden;
