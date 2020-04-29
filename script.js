@@ -92,13 +92,28 @@ function setupSubmitForm() {
     if (form.checkValidity()) {
       console.log("submit ready");
 
-      dataAdded = {
-        name: `${form.elements.firstName} ${form.elements.lastName} "TO DO"`,
-        email: "TO DO",
-        company: "TO DO",
-        job: "TO DO",
-        country: "TO DO",
+      const dataAdded = {
+        name: `${form.elements.firstName.value} ${form.elements.lastName.value}`,
+        email: `${form.elements.workEmail.value}`,
+        company: `${form.elements.companyName.value}`,
+        job: `${form.elements.jobTitle.value}`,
+        country: `${form.elements.country.value}`,
       };
+
+      //POST
+      const postData = JSON.stringify(dataAdded);
+
+      fetch(`https://databaseelite-b1b7.restdb.io/rest/dxc-subscriptions`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "x-apikey": "5e9580ac436377171a0c234c",
+          "cache-control": "no-cache",
+        },
+        body: postData,
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
 
       // TO DO: check if it exists already
       // TO DO: if it doesnt call a function that posts else show message that asks the user if he/she wants to go to it

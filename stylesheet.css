@@ -374,25 +374,33 @@ footer {
 }
 /* ------------------------------- */
 
-/*Viki Start*/
+/*------------------- Viki Start -----------------------------*/
 html {
   scroll-behavior: smooth;
 }
 
 /* HEADER STYLING*/
-.logo-container {
+.header {
   background-color: black;
-  height: 10vh;
-  flex: 0 0 100%;
-  max-width: 100%;
+  width: 100%;
+  height: 8vh;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  padding-left: 15px;
+  padding: 1em;
+}
+
+.logo-container {
+  width: 150px;
 }
 
 #header-logo {
-  width: 50%;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1000px) {
+  .logo-container {
+    width: 200px;
+  }
 }
 
 /* SECTIONS STYLING*/
@@ -427,4 +435,52 @@ html {
   margin: 10px;
 }
 
-/*Vikis's Ends*/
+.bullet-points li p span {
+  font-weight: bold;
+}
+
+.right-triangle {
+  display: none;
+}
+
+/* Desktop version */
+
+@media only screen and (min-width: 700px) {
+  .grey-sections {
+    width: 50%;
+    float: left;
+  }
+
+  .white-sections {
+    width: 50%;
+  }
+
+  .right-triangle {
+    display: block;
+    float: right;
+  }
+
+  #section-2 {
+    width: 100%;
+    float: right;
+    padding-top: 30px;
+  }
+
+  #section-3 {
+    width: 100%;
+    float: right;
+    padding-top: 30px;
+  }
+
+  .left-column {
+    width: 50%;
+    float: left;
+  }
+
+  .right-column {
+    width: 50%;
+    float: right;
+  }
+}
+
+/*----------------------------- Vikis's Ends -------------------------*/
