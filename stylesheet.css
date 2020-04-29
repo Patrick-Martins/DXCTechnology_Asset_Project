@@ -466,6 +466,20 @@ footer {
   font-size: 30px;
   cursor: pointer;
 }
+.email_existing_message {
+  display: block;
+  position: fixed;
+  top: 45px;
+  right: 0;
+  background-color: red;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  padding: 20px;
+}
 
 .hidden {
   display: none;
