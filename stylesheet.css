@@ -9,6 +9,16 @@
   box-sizing: border-box;
   font-family: GT Walsheim Pro, sans-serif;
 }
+.text_size {
+  font-size: 20px;
+}
+.headline_size {
+  font-size: 30px;
+}
+
+.headline_size2 {
+  font-size: 25px;
+}
 
 .slider-container {
   width: 100vw;
@@ -538,11 +548,21 @@ footer {
     display: flex;
     flex-direction: row-reverse;
   }
+  .purpose-form {
+    display: flex;
+    flex-direction: row-reverse;
+    min-height: 500px;
+  }
+  .purpose-form img {
+    height: 50%;
+    margin: auto;
+  }
   .purpose {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+
   .inovation {
     font-size: 50px;
     width: 80%;
@@ -551,14 +571,29 @@ footer {
   .terms_and_conditions {
     font-size: 20px;
   }
+
+  .text_size {
+    font-size: 25px;
+  }
+  .headline_size {
+    font-size: 40px;
+  }
+
+  .headline_size2 {
+    font-size: 35px;
+  }
 }
 
-/* input + p.invalid_message {
+input + p {
   display: none;
 }
 
-input.invalid + p.invalid_message {
+input:not(:placeholder-shown) + p {
+  display: none;
+}
+
+input.invalid:not(:placeholder-shown) + p {
   display: block;
   color: red;
   font-weight: 600;
-} */
+}
