@@ -18,6 +18,7 @@ let emailSubmitted;
 let emailApproved = false;
 
 function init() {
+  console.log("init");
   checkLocalStorage();
   sliderFunctionality();
   setupSubmitForm();
@@ -167,16 +168,32 @@ function clickConditions() {
 
 // FORM ----------------------------
 function setupSubmitForm() {
+  document.querySelector("button#submit");
   //event listener on submit
-  form.addEventListener("submit", (e) => {
+  document.querySelector("button#submit").addEventListener("click", (e) => {
     //update the email submitted
+    console.log("Submit btn clicked");
 
     //remove invalid class from all
     formInputs.forEach((input) => {
       input.classList.remove("invalid");
     });
-    //first check if the email exists and after check if all inputs are valid as well
-    checkEmail(form.elements.workEmail.value);
+    if (form.checkValidity()) {
+      console.log("form is valid");
+      //first check if the email exists and after check if all inputs are valid as well
+      checkEmail(form.elements.workEmail.value);
+    } else {
+      console.log("not valid");
+      //add invalid class if it is invalid
+      formInputs.forEach((input) => {
+        if (!input.checkValidity()) {
+          //   console.log(el.type);
+          console.log("added class INVALID");
+          input.classList.add("invalid");
+        }
+      });
+    }
+
     // console.log(emailApproved);
   });
 }
@@ -204,20 +221,13 @@ function checkValidity_Email() {
     // TO DO: check if it exists already
     // TO DO: if it doesnt call a function that posts else show message that asks the user if he/she wants to go to it
   } else {
+    console.log("not valid inputs");
+
     //if emailApproved is false then a div with a message should appear for 5s
     document.querySelector(".email_existing_message ").classList.remove("hidden");
     setTimeout(() => {
       document.querySelector(".email_existing_message ").classList.add("hidden");
     }, 5000);
-
-    console.log("not valid");
-    //add invalid class if it is invalid
-    formInputs.forEach((input) => {
-      if (!input.checkValidity()) {
-        //   console.log(el.type);
-        input.classList.add("invalid");
-      }
-    });
   }
 }
 async function checkEmail(email_input) {

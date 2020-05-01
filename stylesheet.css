@@ -584,7 +584,7 @@ footer {
   }
 }
 
-input + p {
+/* input + p {
   display: none;
 }
 
@@ -596,4 +596,15 @@ input.invalid:not(:placeholder-shown) + p {
   display: block;
   color: red;
   font-weight: 600;
+} */
+
+input + p.invalid-message {
+  display: none;
+}
+
+input.invalid + p.invalid-message {
+  display: block;
+}
+input:valid + p.invalid-message {
+  display: none;
 }
